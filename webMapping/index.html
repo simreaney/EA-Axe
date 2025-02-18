@@ -67,7 +67,7 @@
 <h1>SCIMAP Sediment Standard for the River Axe</h1>
 <div id="map"></div>
 <script>
-    var map = L.map('map').setView([50.82336, -2.94429], 11.0);
+    var map = L.map('map').setView([50.82336, -2.94429], 10.0);
 
     map1 = L.tileLayer('https://simreaney.github.io/EA-Axe/webMapping/top10pcent/{z}/{x}/{y}.png', {
         minZoom: 8,
@@ -120,6 +120,7 @@
                             '#2b83ba';
     }
 
+    map.addLayer(map4);
     var legend = L.control({position: 'bottomright'});
 
     legend.onAdd = function (map) {
