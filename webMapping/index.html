@@ -4,17 +4,9 @@
     <title>SCIMAP Sediment for River Axe</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
-          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-          crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
-            integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-            crossorigin=""></script> -->
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 
     <style type="text/css">
         body {
@@ -67,7 +59,7 @@
 <h1>SCIMAP Sediment Standard for the River Axe</h1>
 <div id="map"></div>
 <script>
-    var map = L.map('map').setView([50.82336, -2.94429], 12.0);
+    var map = L.map('map').setView([50.82336, -2.94429], 11);
 
     map1 = L.tileLayer('https://simreaney.github.io/EA-Axe/webMapping/top10pcent/{z}/{x}/{y}.png', {
         minZoom: 8,
@@ -112,12 +104,12 @@
 
     //legend
     function getColor(d) {
-        return d > 1.0 ? '#d7191c' :
-            d > 0.8 ? '#fdae61' :
-                d > 0.6 ? '#ffffbf' :
-                    d > 0.4 ? '#abdda4' :
-                        d > 0.2 ? '#2b83ba' :
-                            '#2b83ba';
+        return d > 1.0 ? '#ebffff' :
+            d > 0.75 ? '#eb0000' :
+            d > 0.5 ? '#ffa94f' :
+            d > 0.25 ? '#ffffb7' :
+            d > 0.00 ? '#9ddf9e' :
+            '#0085bf';
     }
 
     map.addLayer(map4);
@@ -125,7 +117,7 @@
 
     legend.onAdd = function (map) {
         var div = L.DomUtil.create('div', 'info legend'),
-            grades = [0, 0.2, 0.4, 0.6, 0.8, 1.0],
+            grades = [0, 0.25, 0.5, 0.75, 1.0],
             labels = [];
 
         for (var i = 0; i < grades.length; i++) {
