@@ -61,6 +61,11 @@
 <script>
     var map = L.map('map').setView([50.82336, -2.94429], 11);
 
+    // OpenStreetMap Tile Layer (added directly to the map)
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
     map1 = L.tileLayer('https://simreaney.github.io/EA-Axe/webMapping/top10pcent/{z}/{x}/{y}.png', {
         minZoom: 8,
         maxZoom: 17,
@@ -101,7 +106,7 @@
         name: 'Field boundary breakthrough and delivery points'
     });
 
-    var baseMaps = {
+    var overlayMaps = { // Changed to overlayMaps
         "Instream Risk Concentration": map4,
         "CSAs - Top 10% Sediment Sources": map1,
         "Hydrological Connectivity": map2,
@@ -109,7 +114,7 @@
         'Field boundary breakthrough and delivery points': map5
     };
 
-    L.control.layers(baseMaps).addTo(map);
+    L.control.layers(null, overlayMaps).addTo(map); // Null for baseMaps
 
     //legend
     function getColor(d) {
