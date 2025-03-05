@@ -122,14 +122,14 @@
         attribution: 'Sim Reaney / SCIMAP',
         name: 'Heatmap'
     });
-    var overlayMaps = { // Changed to overlayMaps
+    var overlayMaps = {
         "Instream Risk Concentration": map4,
         "CSAs - Top 10% Sediment Sources": map1,
         "Hydrological Connectivity": map2,
         "Sediment Mobilisation Potential": map3,
         'Field boundary breakthrough and delivery points': map5,
         'Flow, sediment and P surface flow pathways': map6,
-        'Heatmap': map7
+        'Heatmap of delivery points': map7
     };
 
     L.control.layers(null, overlayMaps).addTo(map); // Null for baseMaps
@@ -181,7 +181,7 @@
             radius: 5
         }).addTo(map);
 
-        userLocationMarker.bindPopup("You are within " + radius + " meters from this point").openPopup();
+        userLocationMarker.bindPopup("Accuracy: " + radius).openPopup();
     }
 
     function onLocationError(e) {
